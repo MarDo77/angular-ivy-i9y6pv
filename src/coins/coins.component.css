@@ -1,0 +1,28 @@
+my-coins {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Lato;
+}
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Lato;
+}
+table {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Lato;
+  font-size: small;
+}
+tr {
+  background-color: rgb(91, 155, 213);
+}
+th {
+  color: white;
+  padding: 6px;
+}
+tr.odd {
+  background-color: rgb(189, 215, 238);
+}
+tr.even {
+  background-color: rgb(236, 244, 250);
+}
+td {
+  padding: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}

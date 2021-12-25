@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { MyCoins } from './coins.component';
+import { MyCoins } from '../coins/coins.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],

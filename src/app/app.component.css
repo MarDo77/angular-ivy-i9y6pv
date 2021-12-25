@@ -1,3 +1,9 @@
 p {
-  font-family: Lato;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Lato;
+}
+tr.odd {
+  background-color: lightgrey;
+}
+tr.even {
+  background-color: lightslategrey;
 }

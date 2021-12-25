@@ -1,0 +1,19 @@
+<h1>here: {{ name }}</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Value</th>
+    <th>Year</th>
+    <th>Mince</th>
+  </tr>
+  <tr
+    *ngFor="let Coin of myCoinsList; index as i"
+    class="{{ i % 2 === 0 ? 'odd' : 'even' }}"
+  >
+    <td>{{ Coin.Id }}</td>
+    <td>{{ Coin.Value }}</td>
+    <td>{{ Coin.Year }}</td>
+    <td>{{ Coin.MinceId }}</td>
+  </tr>
+</table>

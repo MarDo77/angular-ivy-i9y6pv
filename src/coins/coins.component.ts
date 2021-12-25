@@ -4,30 +4,33 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'my-coins',
   templateUrl: './coins.component.html',
-  styles: [`h1 { font-family: Lato; }`],
+  styleUrls: ['./coins.component.css']
 })
 export class MyCoins {
-  public myCoinsList: Coin[] = [];
-  // @Input name: String;
 
+  public myCoinsList: Coin[] = [];
   public name: String = 'MyCoins';
 
   constructor(private http: HttpClient) {
     console.log('begin');
     this.http.get('assets/coins.csv', { responseType: 'text' }).subscribe(
-      (data) => {
-        let csvLine = data.split('\n');
-        console.log(csvLine);
-        for (let i = 1; i < csvLine.length - 1; i++) {
-          let csvCell = csvLine[i].split(';');
-          this.myCoinsList.push(
-            new Coin(csvCell[0], csvCell[1], parseInt(csvCell[2]), csvCell[3])
-          );
-        }
-        console.log(this.myCoinsList);
-      },
-      (error) => {
-        console.log(error);
+      {
+        next: (data) => {
+          let csvLine = data.split('\n');
+          //console.log(csvLine);
+          for (let i = 1; i < csvLine.length - 1; i++) {
+            let csvCell = csvLine[i].split(';');
+            this.myCoinsList.push(
+              new Coin(csvCell[0], csvCell[1], parseInt(csvCell[2]), csvCell[3])
+            );
+          }
+        },
+        error: (err) => {
+          console.log('an err = ' + err);
+        },
+        complete: () => {
+          console.log('comp');
+        },
       }
     );
   }
