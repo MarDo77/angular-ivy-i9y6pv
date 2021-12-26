@@ -2,20 +2,26 @@
 <!--
 <my-coins name="my-coins"></my-coins>
 -->
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Value</th>
-    <th>Year</th>
-    <th>Mince</th>
-  </tr>
-  <tr
-    *ngFor="let Coin of myCoinsList; index as i"
-    class="{{ i % 2 === 0 ? 'odd' : 'even' }}"
-  >
-    <td>{{ Coin.Id }}</td>
-    <td>{{ Coin.Value }}</td>
-    <td>{{ Coin.Year }}</td>
-    <td>{{ Coin.MinceId }}</td>
-  </tr>
-</table>
+<div>
+  <router-outlet></router-outlet>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Value</th>
+      <th>Year</th>
+      <th>Mince</th>
+    </tr>
+    <tr
+      *ngFor="let Coin of myCoinsList; index as i"
+      class="{{ i % 2 === 0 ? 'odd' : 'even' }}"
+    >
+      <td>
+        <a [routerLink]="['/coin', Coin.Id]">{{ Coin.Id }}</a>
+      </td>
+      <td>{{ Coin.Value }}</td>
+      <td>{{ Coin.Year }}</td>
+      <td>{{ Coin.MinceId }}</td>
+    </tr>
+  </table>
+  <div>Total number of coins: {{ TotalNumCoins }}</div>
+</div>
